@@ -2,12 +2,12 @@
 export default{
   data() {
     return {
-
+      mode: 'light'
     }
   },
-  methods() {
-    function handleClick() {
-      
+  methods: {
+    handleClick() {
+      return this.mode == 'light' ? this.mode = 'dark' : this.mode = 'light'
     }
   }
 }
@@ -15,8 +15,8 @@ export default{
 
 <template>
   <div id="app">
-    <div class="box" color-mode="light">
-      <button @click="handleClick">toggle</button>
+    <div class="box" :color-mode="mode">
+      <button  @click="handleClick">toggle</button>
       <div class="container">
         <div class="item item1"></div>
         <div class="item item2"></div>
@@ -35,7 +35,7 @@ export default{
   align-items: center;
   gap: 5em;
   height: 50em;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 /* Light Mode */
 .box[color-mode="light"] {
